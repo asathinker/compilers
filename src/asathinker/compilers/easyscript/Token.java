@@ -48,6 +48,35 @@ public class Token {
 		TOKEN_TYPE_TABLE.put("bool", Type.Bool);
 		TOKEN_TYPE_TABLE.put("false", Type.False);
 		TOKEN_TYPE_TABLE.put("true", Type.True);
+		// 支持中文编程
+		TOKEN_TYPE_TABLE.put("赋值为", Type.Assignment);
+		TOKEN_TYPE_TABLE.put("加", Type.Plus);
+		TOKEN_TYPE_TABLE.put("减", Type.Minus);
+		TOKEN_TYPE_TABLE.put("乘", Type.Star);
+		TOKEN_TYPE_TABLE.put("除", Type.Slash);
+		TOKEN_TYPE_TABLE.put("大于", Type.Gt);
+		TOKEN_TYPE_TABLE.put("小于", Type.Lt);
+		TOKEN_TYPE_TABLE.put("大于等于", Type.Ge);
+		TOKEN_TYPE_TABLE.put("大于等于", Type.Le);
+		TOKEN_TYPE_TABLE.put("等于", Type.Eq);
+		TOKEN_TYPE_TABLE.put("不等于", Type.Neq);
+		TOKEN_TYPE_TABLE.put("（", Type.LeftParen);
+		TOKEN_TYPE_TABLE.put("）", Type.RightParen);
+		TOKEN_TYPE_TABLE.put("开始", Type.LeftBrace);
+		TOKEN_TYPE_TABLE.put("结束", Type.RightBrace);
+		TOKEN_TYPE_TABLE.put("，", Type.Comma);
+		TOKEN_TYPE_TABLE.put("。", Type.Semicolon);
+		TOKEN_TYPE_TABLE.put("如果", Type.If);
+		TOKEN_TYPE_TABLE.put("那么", Type.Else);
+		TOKEN_TYPE_TABLE.put("当", Type.While);
+		TOKEN_TYPE_TABLE.put("返回", Type.Return);
+		TOKEN_TYPE_TABLE.put("间断", Type.Break);
+		TOKEN_TYPE_TABLE.put("函数", Type.Function);
+		TOKEN_TYPE_TABLE.put("空", Type.Void);
+		TOKEN_TYPE_TABLE.put("数值", Type.Number);
+		TOKEN_TYPE_TABLE.put("布尔", Type.Bool);
+		TOKEN_TYPE_TABLE.put("假", Type.False);
+		TOKEN_TYPE_TABLE.put("真", Type.True);
 	}
 
 	public Token(String text, Position position, Type type) {
