@@ -21,9 +21,12 @@ public class EasyScript {
 						token.getText()));
 			}
 		} catch (EasyScriptException exception) {
-			System.err.println("字符:" + exception.getToken() + " 位置:"
-					+ exception.getPosition().getIndex() + " 错误原因:"
-					+ exception.getMessage());
+			System.err
+					.println("字符:" + exception.getToken() + " 位置:[行:"
+							+ (exception.getPosition().getRow() + 1) + ",列:"
+							+ (exception.getPosition().getCol()
+									- exception.getToken().length() + 1 + 1)
+							+ "] 错误原因:" + exception.getMessage());
 		}
 	}
 

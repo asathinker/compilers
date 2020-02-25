@@ -199,8 +199,8 @@ public class EasyScriptLexer implements Lexer {
 	 * @return 如果是合法字符返回true，否则返回false
 	 */
 	private boolean isAlpha(char ch) {
-		return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch == '_')
-				|| (ch >= '\u4E00' && ch <= '\u9FA5');
+		return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch == '_');
+		// || (ch >= '\u4E00' && ch <= '\u9FA5');
 	}
 
 	/**
@@ -290,7 +290,8 @@ public class EasyScriptLexer implements Lexer {
 	 * @return 如果ch是'('返回 true，否则返回 false
 	 */
 	private boolean isLeftParen(char ch) {
-		return ch == '(' || ch == '（';
+		return ch == '(';
+		// return ch == '(' || ch == '（';
 	}
 
 	/**
@@ -300,7 +301,8 @@ public class EasyScriptLexer implements Lexer {
 	 * @return 如果ch是')'返回 true，否则返回 false
 	 */
 	private boolean isRightParen(char ch) {
-		return ch == ')' || ch == '）';
+		return ch == ')';
+		// return ch == ')' || ch == '）';
 	}
 
 	/**
@@ -310,7 +312,8 @@ public class EasyScriptLexer implements Lexer {
 	 * @return 如果ch是','返回 true，否则返回 false
 	 */
 	private boolean isComma(char ch) {
-		return ch == ',' || ch == '，';
+		return ch == ',';
+		// return ch == ',' || ch == '，';
 	}
 
 	/**
@@ -320,7 +323,8 @@ public class EasyScriptLexer implements Lexer {
 	 * @return 如果ch是';'返回 true，否则返回 false
 	 */
 	private boolean isSemicolon(char ch) {
-		return ch == ';' || ch == '。';
+		return ch == ';';
+		// return ch == ';' || ch == '。';
 	}
 
 	/**
