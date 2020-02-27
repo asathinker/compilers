@@ -1,5 +1,11 @@
 package asathinker.compilers.calculator;
 
+/**
+ * 词法分析接口
+ * 
+ * @author asathinker
+ *
+ */
 public interface Lexer {
 	/**
 	 * 获取下一个token

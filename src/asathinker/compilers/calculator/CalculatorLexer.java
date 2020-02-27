@@ -2,11 +2,17 @@ package asathinker.compilers.calculator;
 
 import asathinker.compilers.calculator.Token.Position;
 
+/**
+ * 四则运算词法分析
+ * 
+ * @author asathinker
+ *
+ */
 public class CalculatorLexer implements Lexer {
 
 	private static enum State {
-		Init, Plus, Minus, Star, Slash, LeftParen, RightParen, Number,
-		Number_Dot, Float_Number
+		Init, Plus, Minus, Star, Slash, LeftParen, RightParen, Number, Number_Dot,
+		Float_Number
 	}
 
 	private String code;
@@ -15,8 +21,7 @@ public class CalculatorLexer implements Lexer {
 
 	public CalculatorLexer(String code) {
 		/**
-		 * 状态机解析完最后一个字符后就会跳出，但此时的token可能不为空，所以我们
-		 * 需要在跳出状态机以后再次检查token到底是属于哪种Token类型，
+		 * 状态机解析完最后一个字符后就会跳出，但此时的token可能不为空，所以我们 需要在跳出状态机以后再次检查token到底是属于哪种Token类型，
 		 * 这就会增加编码的复杂度，所以为了保证所有token都完全在状态机里面解析， 我们只要在表达式的最后面加上一个空白字符就好了。
 		 */
 		this.code = code + " ";
@@ -65,8 +70,7 @@ public class CalculatorLexer implements Lexer {
 					state = State.RightParen; // 状态迁移到RightParen
 				} else {
 					// 当前的字符在Init状态下不是一个合法的字符
-					throw new CalculatorException("" + ch, position.copy(),
-							"不合法的字符");
+					throw new CalculatorException("" + ch, position.copy(), "不合法的字符");
 				}
 				// 把当前字符放入到token中
 				token.append(ch);
@@ -90,7 +94,7 @@ public class CalculatorLexer implements Lexer {
 					token.append(ch); // 把字符放入token
 					position.nextIndex(); // 移动到下一个字符
 					state = State.Number_Dot; // 状态迁移到Number_Dot，
-												// 这时的token类似于314.
+					// 这时的token类似于314.
 				} else {
 					// 如果是其他字符，说明我们当前的token已经解析完成了，可以直接返回
 					return new Token(token.toString(), position.copy(),
@@ -102,11 +106,10 @@ public class CalculatorLexer implements Lexer {
 					token.append(ch); // 把字符放入token
 					position.nextIndex(); // 移动到下一个字符
 					state = State.Float_Number; // 状态迁移到Number_Dot，
-												// 这是的token类似于314.6
+					// 这是的token类似于314.6
 				} else {
 					// 当前的字符在Number_Dot状态下不是一个合法的字符
-					throw new CalculatorException("" + ch, position.copy(),
-							"不合法的字符");
+					throw new CalculatorException("" + ch, position.copy(), "不合法的字符");
 				}
 				break;
 			case Float_Number:
@@ -126,11 +129,17 @@ public class CalculatorLexer implements Lexer {
 
 	@Override
 	public Position getPosition() {
+		/**
+		 * 返回一份拷贝
+		 */
 		return position.copy();
 	}
 
 	@Override
 	public void setPosition(Token.Position position) {
+		/**
+		 * 设置当前位置
+		 */
 		this.position = position;
 	}
 
@@ -234,5 +243,3 @@ public class CalculatorLexer implements Lexer {
 		return ch == ')';
 	}
 }
-
-
